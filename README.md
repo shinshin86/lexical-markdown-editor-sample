@@ -1,3 +1,8 @@
+# lexical-markdown-editor-sample
+[Lexical](https://github.com/facebook/lexical) markdown editor sample
+
+-----------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,0 +1,13 @@
+{
+  "fmt": {
+    "files": {
+      "include": [
+        "src",
+        "deno.jsonc",
+        "package.json",
+        "tsconfig.json"
+      ],
+      "exclude": ["node_modules"]
+    }
+  }
+}

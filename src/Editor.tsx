@@ -1,6 +1,7 @@
 import "ress";
 import "./App.css";
 import { useState } from "react";
+import { EditorState, Klass, LexicalNode } from "lexical";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
@@ -8,12 +9,11 @@ import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { $convertToMarkdownString, TRANSFORMERS } from "@lexical/markdown";
 import { RenderMarkdownPlugin } from "./plugins/RenderMarkdownPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
-import { EditorState } from "lexical";
 import { CodeHighlightPlugin } from "./plugins/CodeHighlightPlugin";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { ListItemNode, ListNode } from "@lexical/list";
 import { CodeHighlightNode, CodeNode } from "@lexical/code";
-import { Klass, LexicalNode } from "lexical";
+import { theme } from "./EditorTheme";
 
 const nodes: Klass<LexicalNode>[] = [
   HeadingNode,
@@ -30,6 +30,7 @@ const initialConfig: React.ComponentProps<
   namespace: "MarkdownEditor",
   onError: (error) => console.error(error),
   nodes,
+  theme,
 };
 
 export const Editor: React.FC = () => {
@@ -59,6 +60,7 @@ export const Editor: React.FC = () => {
           onError: (error) => console.error(error),
           nodes,
           editable: false,
+          theme,
         }}
       >
         <div className="editor-container">

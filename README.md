@@ -1,6 +1,14 @@
 # lexical-markdown-editor-sample
 [Lexical](https://github.com/facebook/lexical) markdown editor sample
 
+![Demo](./demo/lexical-markdown-editor-sample.png)
+
+## Start app
+
+```
+yarn start
+```
+
 -----------------
 
 # Getting Started with Create React App

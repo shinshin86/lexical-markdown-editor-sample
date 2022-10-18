@@ -2,16 +2,19 @@
 /* This code is based on the code of the lexical project. */
 /* URL: https://github.com/facebook/lexical/blob/main/packages/lexical-playground/src/themes/PlaygroundEditorTheme.css (commit 2a5cd2539315258e68cbb62203a55e8a4505e1fb) */
 
-.quote {
+.paragraph {
     margin: 0;
-    margin-left: 20px;
-    margin-bottom: 10px;
+    position: relative;
+}
+.quote {
+    margin: 8px;
     font-size: 15px;
     color: rgb(101, 103, 107);
     border-left-color: rgb(206, 208, 212);
     border-left-width: 4px;
     border-left-style: solid;
-    padding-left: 16px;
+    padding-left: 4px;
+    padding-bottom: 4px;
   }
   .h1 {
     font-size: 24px;

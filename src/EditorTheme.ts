@@ -63,6 +63,8 @@ export const theme: EditorThemeClasses = {
     ],
     ul: "ul",
   },
+  paragraph: "paragraph",
+  quote: "quote",
   text: {
     bold: "textBold",
     code: "textCode",

@@ -1,7 +1,7 @@
 import "ress";
 import "./App.css";
 import { useState } from "react";
-import { EditorState, Klass, LexicalNode } from "lexical";
+import { EditorState, Klass, LexicalEditor, LexicalNode } from "lexical";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
@@ -9,11 +9,11 @@ import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { $convertToMarkdownString, TRANSFORMERS } from "@lexical/markdown";
 import { RenderMarkdownPlugin } from "./plugins/RenderMarkdownPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
-import { CodeHighlightPlugin } from "./plugins/CodeHighlightPlugin";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { ListItemNode, ListNode } from "@lexical/list";
 import { CodeHighlightNode, CodeNode } from "@lexical/code";
 import { theme } from "./EditorTheme";
+import { registerCodeHighlighting } from "@lexical/code";
 
 const nodes: Klass<LexicalNode>[] = [
   HeadingNode,
@@ -43,6 +43,13 @@ export const Editor: React.FC = () => {
     });
   };
 
+  const onChangeRenderedMarkdown = (
+    editorState: EditorState,
+    editor: LexicalEditor,
+  ) => {
+    return registerCodeHighlighting(editor);
+  };
+
   return (
     <div className="container">
       <LexicalComposer initialConfig={initialConfig}>
@@ -70,7 +77,7 @@ export const Editor: React.FC = () => {
           />
         </div>
         <RenderMarkdownPlugin markdownText={markdownText} />
-        <CodeHighlightPlugin />
+        <OnChangePlugin onChange={onChangeRenderedMarkdown} />
       </LexicalComposer>
     </div>
   );
